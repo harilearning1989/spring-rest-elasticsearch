@@ -1,3 +1,5 @@
 spring:
   application:
     name: spring-rest-elasticsearch
+  elasticsearch:
+    uris: http://localhost:30920

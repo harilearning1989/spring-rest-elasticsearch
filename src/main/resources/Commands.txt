@@ -1,0 +1,76 @@
+Get Health
+GET /_cluster/health
+
+Get All Indexes
+GET _cat/indices?v
+
+Get Data from Index
+GET all_countries_data/_search
+
+delete index
+DELETE all_countries_data
+
+Create Index
+
+PUT all_countries_data
+{
+  "mappings": {
+    "properties": {
+      "name":        { "type": "text" },
+      "alpha2Code":  { "type": "keyword" },
+      "alpha3Code":  { "type": "keyword" },
+      "capital":     { "type": "text" },
+      "region":      { "type": "keyword" },
+      "subregion":   { "type": "keyword" },
+      "population":  { "type": "long" },
+      "area":        { "type": "float" },
+      "gini":        { "type": "float" },
+      "timezones":   { "type": "keyword" },
+      "borders":     { "type": "keyword" },
+
+      "latlng":      { "type": "float" },
+
+      "currencies": {
+        "type": "nested",
+        "properties": {
+          "code":   { "type": "keyword" },
+          "name":   { "type": "text" },
+          "symbol": { "type": "keyword" }
+        }
+      },
+
+      "languages": {
+        "type": "nested",
+        "properties": {
+          "iso639_1": { "type": "keyword" },
+          "iso639_2": { "type": "keyword" },
+          "name":     { "type": "text" },
+          "nativeName": { "type": "text" }
+        }
+      }
+    }
+  }
+}
+
+Get all country names
+GET all_countries_data/_search
+{
+  "_source": ["name"],
+  "query": {
+    "match_all": {}
+  },
+  "size": 1000
+}
+
+get name,capital,region
+GET all_countries_data/_search
+{
+  "_source": ["name", "capital", "region"],
+  "query": {
+    "match_all": {}
+  },
+  "size": 1000
+}
+
+get name,capital,region filter region
+
