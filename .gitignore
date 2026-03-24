@@ -1,0 +1,15 @@
+# Gradle & build
+.gradle/
+gradle/
+build/
+target/
+
+# IDE
+.idea/
+
+# OS files
+.DS_Store
+
+# Gradle wrapper scripts (optional)
+gradlew
+gradlew.bat
