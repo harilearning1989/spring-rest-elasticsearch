@@ -3,6 +3,7 @@ package com.web.demo.services;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.web.demo.docs.Country;
+import com.web.demo.docs.Currency;
 import com.web.demo.dtos.CountryResponse;
 import com.web.demo.repos.CountryRepository;
 import lombok.RequiredArgsConstructor;
@@ -37,9 +38,30 @@ public class CountryServiceImpl implements CountryService {
                 .withMaxResults(1000)
                 .build();
 
+
         SearchHits<Country> hits = elasticsearchOperations.search(query, Country.class);
 
         return hits.getSearchHits()
+                .stream()
+                .map(hit -> {
+                    Country c = hit.getContent();
+
+                    List<String> codes = c.currencies() != null
+                            ? c.currencies().stream()
+                            .map(Currency::code)
+                            .toList()
+                            : List.of();
+
+                    return new CountryResponse(
+                            c.name(),
+                            c.capital(),
+                            c.region(),
+                            codes
+                    );
+                })
+                .toList();
+
+        /* return hits.getSearchHits()
                 .stream()
                 .map(hit -> {
                     Country c = hit.getContent();
@@ -48,7 +70,7 @@ public class CountryServiceImpl implements CountryService {
                             c.capital(),
                             c.region()
                     );
-                }).toList();
+                }).toList();*/
     }
 
     @Override
@@ -70,16 +92,21 @@ public class CountryServiceImpl implements CountryService {
 
     @Override
     public List<CountryResponse> getCountryData() {
-        NativeQuery query = NativeQuery.builder()
+        /*NativeQuery query = NativeQuery.builder()
                 .withQuery(q -> q.matchAll(m -> m))
                 .withFields("name", "capital", "region") // ✅ multiple fields
+                .withMaxResults(1000)
+                .build();*/
+        NativeQuery query = NativeQuery.builder()
+                .withQuery(q -> q.matchAll(m -> m))
+                .withFields("name", "capital", "region", "currencies.code")
                 .withMaxResults(1000)
                 .build();
 
         SearchHits<Country> hits =
                 elasticsearchOperations.search(query, Country.class);
 
-        return hits.getSearchHits()
+        /*return hits.getSearchHits()
                 .stream()
                 .map(hit -> {
                     Country c = hit.getContent();
@@ -88,7 +115,26 @@ public class CountryServiceImpl implements CountryService {
                             c.capital(),
                             c.region()
                     );
-                }).toList();
+                }).toList();*/
+        return hits.getSearchHits()
+                .stream()
+                .map(hit -> {
+                    Country c = hit.getContent();
+
+                    List<String> codes = c.currencies() != null
+                            ? c.currencies().stream()
+                            .map(Currency::code)
+                            .toList()
+                            : List.of();
+
+                    return new CountryResponse(
+                            c.name(),
+                            c.capital(),
+                            c.region(),
+                            codes
+                    );
+                })
+                .toList();
     }
 
     @Override
