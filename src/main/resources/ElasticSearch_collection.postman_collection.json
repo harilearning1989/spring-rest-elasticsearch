@@ -1,0 +1,249 @@
+{
+  "info": {
+    "_postman_id": "ba7bba9c-97f3-4557-8f54-3f282a879b79",
+    "name": "ElasticSearch_collection",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "29947988"
+  },
+  "item": [
+    {
+      "name": "Search multiple brands",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"brands\": [\n        \"Nokia\",\n        \"Samsung\"\n    ],\n    \"sizes\": [\n        \"256GB\",\n        \"512GB\"\n    ],\n    \"colors\": [\n        \"Gray\"\n    ],\n    \"minPrice\": 50000,\n    \"maxPrice\": 120000,\n    \"sortBy\": \"priceAsc\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/products/searchMultiple",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "products",
+            "searchMultiple"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetAllProductsBasedOnMemory",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/products/search/size?size=512GB",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "products",
+            "search",
+            "size"
+          ],
+          "query": [
+            {
+              "key": "size",
+              "value": "512GB",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetProductById",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/products/46",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "products",
+            "46"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "http://localhost:8080/countries/asia",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/countries/asia",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "countries",
+            "asia"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetSelectedColumns",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/countries/multipleFields",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "countries",
+            "multipleFields"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "SearchLimitedFields",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/products/search/limited?brand=Nokia&size=512GB&color=Gray&minPrice=50000&maxPrice=120000",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "products",
+            "search",
+            "limited"
+          ],
+          "query": [
+            {
+              "key": "brand",
+              "value": "Nokia"
+            },
+            {
+              "key": "size",
+              "value": "512GB"
+            },
+            {
+              "key": "color",
+              "value": "Gray"
+            },
+            {
+              "key": "minPrice",
+              "value": "50000"
+            },
+            {
+              "key": "maxPrice",
+              "value": "120000"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "SearchBySize",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/products/search/size?size=512GB",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "products",
+            "search",
+            "size"
+          ],
+          "query": [
+            {
+              "key": "size",
+              "value": "512GB"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GetProductsBetweenPriceRange",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/products/search/price?min=50000&max=100000",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "products",
+            "search",
+            "price"
+          ],
+          "query": [
+            {
+              "key": "min",
+              "value": "50000"
+            },
+            {
+              "key": "max",
+              "value": "100000"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

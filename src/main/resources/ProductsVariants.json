@@ -1,0 +1,133 @@
+{
+  "products": [
+    {
+      "productId": 1,
+      "sku": "APL-IP14",
+      "name": "iPhone 14",
+      "brand": "Apple",
+      "category": "Smartphone",
+      "active": true,
+      "variants": [
+        {
+          "variantSku": "APL-IP14-128-BLK",
+          "size": "128GB",
+          "color": "Black",
+          "configuration": "iPhone 14",
+          "price": 79900,
+          "weightInGrams": 172,
+          "description": "Apple iPhone 14 series",
+          "active": true
+        },
+        {
+          "variantSku": "APL-IP14-256-BLU",
+          "size": "256GB",
+          "color": "Blue",
+          "configuration": "iPhone 14",
+          "price": 89900,
+          "weightInGrams": 172,
+          "description": "Apple iPhone 14 series",
+          "active": true
+        },
+        {
+          "variantSku": "APL-IP14-128-SLV",
+          "size": "128GB",
+          "color": "Silver",
+          "configuration": "iPhone 14 Pro",
+          "price": 119900,
+          "weightInGrams": 172,
+          "description": "Apple iPhone 14 series",
+          "active": true
+        },
+        {
+          "variantSku": "APL-IP14-512-GLD",
+          "size": "512GB",
+          "color": "Gold",
+          "configuration": "iPhone 14 Pro Max",
+          "price": 149900,
+          "weightInGrams": 172,
+          "description": "Apple iPhone 14 series",
+          "active": true
+        }
+      ]
+    },
+    {
+      "sku": "APL-IP15",
+      "name": "iPhone 15",
+      "brand": "Apple",
+      "category": "Smartphone",
+      "active": true,
+      "variants": [
+        {
+          "variantSku": "APL-IP15-128-PNK",
+          "size": "128GB",
+          "color": "Pink",
+          "configuration": "iPhone 15",
+          "price": 89900,
+          "weightInGrams": 171,
+          "description": "Apple iPhone 15 series",
+          "active": true
+        },
+        {
+          "variantSku": "APL-IP15-256-BLK",
+          "size": "256GB",
+          "color": "Black",
+          "configuration": "iPhone 15 Pro",
+          "price": 129900,
+          "weightInGrams": 171,
+          "description": "Apple iPhone 15 series",
+          "active": true
+        }
+      ]
+    },
+    {
+      "productId": 10,
+      "sku": "SMS-S23",
+      "name": "Galaxy S23",
+      "brand": "Samsung",
+      "category": "Smartphone",
+      "active": true,
+      "variants": [
+        {
+          "variantSku": "SMS-S23-128-BLK",
+          "size": "128GB",
+          "color": "Black",
+          "configuration": "S23",
+          "price": 74999,
+          "weightInGrams": 168,
+          "description": "Samsung flagship",
+          "active": true
+        },
+        {
+          "variantSku": "SMS-S23-256-GRN",
+          "size": "256GB",
+          "color": "Green",
+          "configuration": "S23+",
+          "price": 84999,
+          "weightInGrams": 168,
+          "description": "Samsung flagship",
+          "active": true
+        }
+      ]
+    },
+    {
+      "productId": 11,
+      "sku": "SMS-FOLD5",
+      "name": "Galaxy Z Fold 5",
+      "brand": "Samsung",
+      "category": "Smartphone",
+      "active": true,
+      "variants": [
+        {
+          "variantSku": "SMS-FOLD5-256-BLU",
+          "size": "256GB",
+          "color": "Blue",
+          "configuration": "Fold",
+          "price": 154999,
+          "weightInGrams": 253,
+          "description": "Foldable flagship",
+          "active": true
+        }
+      ]
+    }
+  ]
+}
